@@ -1,10 +1,8 @@
 #include<iostream>
-<<<<<<< HEAD
+
 #include<cmath>
 // #include<bits/stdc++.h>
-=======
-#include<bits/stdc++.h>
->>>>>>> a438a2ae2398fbbdf9568939bc20c0aafbbd6396
+// #include<bits/stdc++.h>
 #include<vector>
 #include<algorithm>
 #include<math.h>
