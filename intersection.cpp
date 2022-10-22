@@ -1,22 +1,20 @@
 
 // -------------------------------------ajeet gupta -------------------------------------------        
 #include<iostream>
+#include<string>
 #include<cmath>
 // #include<bits/stdc++.h>
+// #include<bits/stdc++.h> 
 #include<vector>
 #include<algorithm>
 #include<math.h>                                                                                 
-#include<string>
 // #include<unordered_set>
-#include<cstring>
+// #include<cstring>
 #include<map>
 #include<stack>
 // #include<queue>
- 
- // for iterator (*it).first == it->first for maps
 
-#define int               long long
-#define nline             endl
+
 #define sl                s.length()
 #define ll                long long
 #define pb                push_back
@@ -31,15 +29,6 @@
 #define fast_io           ios_base::sync_with_stdio(false);cin.tie(NULL)
 #define read(x)           int x; cin >> x
 #define show(x)           cout<<x<<endl
-const int Mod = 1e9+7;
-
-/* 
-sum upto n = (n*(n+1))/2 
-sun upto n-1 = (n*(n-1)/2)  
-(a+b)%M = ( (a%M) + (b%M) )% M
-(a*b)%M = ( (a%M) * (b%M) )% M
-(a-b)%M = ( (a%M) - (b%M) + M)% M  // extra +M for making positve
-*/
 
 
 
@@ -47,6 +36,34 @@ using namespace std;
 
 // typedef vector<int> v;
 // typedef long long ll;
+
+
+// string sj(string &s)
+// {
+//  int count =0;
+//      for(int i=0; i<s.length()-1; i++)
+//      {
+//        if(s[i]==s[i+1])
+//        {
+//          count++;
+//          if(count ==6 )
+//          {
+//            return "YES";
+//            break;
+//          }
+//        }
+//        else
+//        {
+//          count =0;
+//        }
+//      }
+//      return "NO";
+
+// }
+
+
+
+
 
 void init_code(){
    
@@ -56,67 +73,76 @@ void init_code(){
     #endif 
 }
 
-
-void display(int a[],int n)
-{
-   for(int i =0; i<n; i++)
-   {
-      cout<<a[i]<<" ";
-   }
-}
-
-void solve()
-{
-  int n,m;
-  cin>>n>>m;
-  char s[n][m];
-  for(int i=0; i<n; i++)
-  {
-   for(int j=0; j<m; ++j)
-   {
-      cin>>s[i][j];
-   }
-  }
-  int count =0;
-  for(int i=0; i<m; i++)
-  {
-   count =0;
- 
-   for(int j=0; j<n; ++j)
-   {
-      if(s[j][i]=='#')
-      {
-         count++;
-      }
-
-   }
-   cout<<count<<" ";
-  }
+// void solve(){
+//    int n,j;
+//    int b =6;
+//    cin>>n>>j;
+//    int a= 7- max(n,j);
+//    for(int i =2; i<=6; i++)
+//    {
+//       if(a%i==0 && b%i==0)
+//       {
+//       a/=i;
+//       b/=i; 
+//       }
+    
+//    }
+//    cout<<a<<"/"<<b<<endl;
 
 
 
-  
-
-
-}
+// }
 
 
 
+// void display(int a[],int n)
+// {
+//    for(int i =0; i<n; i++)
+//    {
+//       cout<<a[i]<<" ";
+//    }
+// }
 
 
+// int findinter(int arr1[], int arr2[], int com[])
+// {
+//     while( i<n )
 
- 
-// int main() 
+// }
 
-signed main(){
+
+// int main()
+ signed main()   // it for if u dont want to return the actual no -----
+ {
    fast_io;
    init_code();
-   // ll tt;
-   // cin>>tt; 
-   // while(tt--)
-   // {
-   //   solve();
-   // }
-   solve();  
+   int tt;
+   cin>>tt; 
+   while(tt--)
+   {
+      string a,b;
+      cin>>a;
+      cin>>b;
+      if(a == b)
+      {
+         cout<<"="<<endl;
+      }
+      else
+      {
+           if(a[a.length()-1]==b[b.length()-1])
+           {
+
+           }
+      }
    } 
+
+
      
+     
+    
+
+
+
+   
+   return 0;
+}
