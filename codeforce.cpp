@@ -13,7 +13,10 @@
 #include<stack>
 // #include<queue>
  
- // for iterator (*it).first == it->first for maps
+// for iterator (*it).first == it->first for maps
+// A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
+
+
 
 #define int               long long
 #define nline             endl
@@ -48,6 +51,20 @@ using namespace std;
 // typedef vector<int> v;
 // typedef long long ll;
 
+ #ifndef ONLINE_JUDGE
+ #define debug(x) cerr <<#x <<" "<<x<<nline;
+ #else
+ #define debug(x)
+ #endif
+
+void debug_gen()
+{
+     #ifndef ONLINE_JUDGE
+    freopen("error.txt", "w", stderr);
+    #endif
+
+}
+
 void init_code(){
    
     #ifndef ONLINE_JUDGE
@@ -55,6 +72,11 @@ void init_code(){
     freopen("output.txt", "w", stdout);
     #endif 
 }
+
+// void debug(int x)
+// {
+//    cout<<#x<<" "<<x<<nline;
+// }
 
 
 void display(int a[],int n)
@@ -65,38 +87,11 @@ void display(int a[],int n)
    }
 }
 
+
 void solve()
 {
-  int n,m;
-  cin>>n>>m;
-  char s[n][m];
-  for(int i=0; i<n; i++)
-  {
-   for(int j=0; j<m; ++j)
-   {
-      cin>>s[i][j];
-   }
-  }
-  int count =0;
-  for(int i=0; i<m; i++)
-  {
-   count =0;
- 
-   for(int j=0; j<n; ++j)
-   {
-      if(s[j][i]=='#')
-      {
-         count++;
-      }
-
-   }
-   cout<<count<<" ";
-  }
-
-
-
   
-
+ 
 
 }
 
@@ -109,6 +104,7 @@ void solve()
 // int main() 
 
 signed main(){
+   debug_gen();
    fast_io;
    init_code();
    // ll tt;
@@ -116,7 +112,13 @@ signed main(){
    // while(tt--)
    // {
    //   solve();
-   // }
-   solve();  
+     
+   // } 
+
+    int a =10;
+    int b=20;
+    a++;
+    debug(b);
+    debug(b);
    } 
      
