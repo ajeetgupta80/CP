@@ -7,10 +7,11 @@
 #include<algorithm>
 #include<math.h>                                                                                 
 #include<string>
-// #include<unordered_set>
+#include<unordered_set>
 #include<cstring>
 #include<map>
 #include<stack>
+#include<set>
 // #include<queue>
  
 // for iterator (*it).first == it->first for maps
@@ -18,10 +19,9 @@
 
 
 
-#define int               long long
-#define nline             endl
+#define INF               1e18
+#define nline             "\n"
 #define sl                s.length()
-#define ll                long long
 #define pb                push_back
 #define fr(a,b)           for(int i = a; i < b; i++)
 #define rep(i,a,b)        for(int i = a; i < b; i++)
@@ -44,39 +44,40 @@ sun upto n-1 = (n*(n-1)/2)
 (a-b)%M = ( (a%M) - (b%M) + M)% M  // extra +M for making positve
 */
 
-
-
 using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
 
-// typedef vector<int> v;
-// typedef long long ll;
 
- #ifndef ONLINE_JUDGE
- #define debug(x) cerr <<#x <<" "<<x<<nline;
- #else
- #define debug(x)
- #endif
+#ifndef ONLINE_JUDGE
+#define debug(x) cerr <<#x <<" ";_print(x); cerr<<nline;
+#else
+#define debug(x)
+#endif
+
+void _print(int a ){ cerr<<a; }
+void _print(string a ){ cerr<<a; }
+void _print(long long a ){ cerr<<a; }
+void _print(bool a ){ cerr<<a; }
+void _print(char a ){ cerr<<a; }
+
+template<class T> void _print(vector<T> v1){ cerr<<"[ "; for(T i:v1){_print(i);cerr<<" ";}cerr<<"]";}
+template<class T> void _print(set<T> s1){cerr<<"[ ";for(T i:s1){_print(i);cerr<<" ";}cerr<<"]";}
 
 void debug_gen()
 {
-     #ifndef ONLINE_JUDGE
+    #ifndef ONLINE_JUDGE
     freopen("error.txt", "w", stderr);
     #endif
-
 }
 
 void init_code(){
-   
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     #endif 
 }
 
-// void debug(int x)
-// {
-//    cout<<#x<<" "<<x<<nline;
-// }
 
 
 void display(int a[],int n)
@@ -90,7 +91,7 @@ void display(int a[],int n)
 
 void solve()
 {
-  
+  return;
  
 
 }
@@ -107,18 +108,26 @@ signed main(){
    debug_gen();
    fast_io;
    init_code();
-   // ll tt;
-   // cin>>tt; 
-   // while(tt--)
-   // {
-   //   solve();
+   ll tt;
+   cin>>tt; 
+   while(tt--)
+   {
+     solve();
      
-   // } 
+   } 
 
     int a =10;
     int b=20;
     a++;
+    string s ="ajeet";
+    vector<int> v1={1,2,3};
+    debug(v1); 
+    vector<string> vs ={"ajeet ", "gupta"};
+    debug(vs);
+    debug(a);
     debug(b);
-    debug(b);
-   } 
-     
+    set<int> s2;
+    s2.insert(20000);
+    s2.insert(88888);
+    debug(s2);
+}
