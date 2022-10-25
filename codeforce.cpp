@@ -45,6 +45,7 @@ sun upto n-1 = (n*(n-1)/2)
 */
 
 using namespace std;
+
 typedef long long ll;
 typedef unsigned long long ull;
 
@@ -91,8 +92,34 @@ void display(int a[],int n)
 
 void solve()
 {
-  return;
- 
+ int n;
+ cin>>n;
+ string s;
+ cin>>s;
+ int countQ =0;
+ for(int i=0; i<n; i++)
+ {
+   if(s[i]=='Q')
+   {
+      countQ++;
+   }
+   else
+   {
+      countQ--;
+   }
+   if(countQ<=0)
+      countQ=0;
+
+
+ }
+ if(countQ ==0)
+ {
+   cout<<"YES"<<nline;
+ }
+ else
+ {
+   cout<<"NO"<<nline;
+ }
 
 }
 
@@ -116,18 +143,18 @@ signed main(){
      
    } 
 
-    int a =10;
-    int b=20;
-    a++;
-    string s ="ajeet";
-    vector<int> v1={1,2,3};
-    debug(v1); 
-    vector<string> vs ={"ajeet ", "gupta"};
-    debug(vs);
-    debug(a);
-    debug(b);
-    set<int> s2;
-    s2.insert(20000);
-    s2.insert(88888);
-    debug(s2);
+    // int a =10;
+    // int b=20;
+    // a++;
+    // string s ="ajeet";
+    // vector<int> v1={1,2,3};
+    // debug(v1); 
+    // vector<string> vs ={"ajeet ", "gupta"};
+    // debug(vs);
+    // debug(a);
+    // debug(b);
+    // set<int> s2;
+    // s2.insert(20000);
+    // s2.insert(88888);
+    // debug(s2);
 }
