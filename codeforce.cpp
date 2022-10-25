@@ -12,6 +12,9 @@
 #include<map>
 #include<stack>
 #include<set>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+
 // #include<queue>
  
 // for iterator (*it).first == it->first for maps
@@ -45,6 +48,7 @@ sun upto n-1 = (n*(n-1)/2)
 */
 
 using namespace std;
+using namespace __gnu_pbds;
 
 typedef long long ll;
 typedef unsigned long long ull;
@@ -133,6 +137,7 @@ void solve()
 
 signed main(){
    debug_gen();
+
    fast_io;
    init_code();
    ll tt;
