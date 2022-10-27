@@ -12,15 +12,14 @@
 #include<map>
 #include<stack>
 #include<set>
-#include<ext/pb_ds/assoc_container.hpp>
+// #include<queue>
+#include<ext/pb_ds/assoc_container.hpp> 
 #include<ext/pb_ds/tree_policy.hpp>
 
-// #include<queue>
+
  
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
-
-
 
 #define INF               1e18
 #define nline             "\n"
@@ -49,6 +48,8 @@ sun upto n-1 = (n*(n-1)/2)
 
 using namespace std;
 using namespace __gnu_pbds;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order, order_of_key
+
 
 typedef long long ll;
 typedef unsigned long long ull;
@@ -96,34 +97,34 @@ void display(int a[],int n)
 
 void solve()
 {
- int n;
- cin>>n;
- string s;
- cin>>s;
- int countQ =0;
- for(int i=0; i<n; i++)
- {
-   if(s[i]=='Q')
-   {
-      countQ++;
-   }
-   else
-   {
-      countQ--;
-   }
-   if(countQ<=0)
-      countQ=0;
-
-
- }
- if(countQ ==0)
- {
-   cout<<"YES"<<nline;
- }
- else
- {
-   cout<<"NO"<<nline;
- }
+int n;
+cin>>n;
+int a[n];
+int sum=0;
+for(int i=0;i<n; ++i)
+{
+   cin>>a[i];
+   sum+=a[i];
+}
+debug(sum);
+sort(a,a+n);
+int halfsum = sum/2;
+debug(halfsum);
+int count=0;
+int b=0;
+for(int i=0; i<n; ++i)
+{
+   b+=a[n-i-1];
+   count++;
+   debug(b);
+    if(b>halfsum)
+    {
+      break;
+    }
+   
+}
+cout<<count<<nline;
+return;
 
 }
 
@@ -140,13 +141,14 @@ signed main(){
 
    fast_io;
    init_code();
-   ll tt;
-   cin>>tt; 
-   while(tt--)
-   {
-     solve();
+   // ll tt;
+   // cin>>tt; 
+   // while(tt--)
+   // {
+   //   solve();
      
-   } 
+   // } 
+    solve();
 
     // int a =10;
     // int b=20;

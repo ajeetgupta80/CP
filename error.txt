@@ -1,0 +1,4 @@
+sum 6
+halfsum 3
+b 3
+b 6
