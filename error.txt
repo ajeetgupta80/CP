@@ -1,4 +1,2 @@
-sum 6
-halfsum 3
-b 3
-b 6
+count_B 1
+count_A 1

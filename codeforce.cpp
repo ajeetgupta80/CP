@@ -64,7 +64,7 @@ typedef unsigned long long ull;
 void _print(int a ){ cerr<<a; }
 void _print(string a ){ cerr<<a; }
 void _print(long long a ){ cerr<<a; }
-void _print(bool a ){ cerr<<a; }
+void _print(bool a ){ cerr<<a; }  
 void _print(char a ){ cerr<<a; }
 
 template<class T> void _print(vector<T> v1){ cerr<<"[ "; for(T i:v1){_print(i);cerr<<" ";}cerr<<"]";}
@@ -97,34 +97,37 @@ void display(int a[],int n)
 
 void solve()
 {
-int n;
-cin>>n;
-int a[n];
-int sum=0;
-for(int i=0;i<n; ++i)
-{
-   cin>>a[i];
-   sum+=a[i];
-}
-debug(sum);
-sort(a,a+n);
-int halfsum = sum/2;
-debug(halfsum);
-int count=0;
-int b=0;
-for(int i=0; i<n; ++i)
-{
-   b+=a[n-i-1];
-   count++;
-   debug(b);
-    if(b>halfsum)
-    {
-      break;
-    }
-   
-}
-cout<<count<<nline;
-return;
+   int n;
+   cin>>n;
+   string s;
+   cin>>s;
+   int count_A =0;
+   int count_B =0;
+   for(int i=0;i<2*n/2; ++i)
+   {
+      if(s[i]>s[2*n-i-1])
+      {
+         if(s[i]>s[2*n-i-1]|| s[i]==s[2*n-i-1])
+             count_A++;
+      }
+
+      if(s[i]<s[2*n-i-1] )
+      {
+         if(s[i]<s[2*n-i-1] || s[i]==s[2*n-i-1])
+            count_B++;
+      }
+
+
+   }
+   debug(count_B);
+   debug(count_A);
+   if(count_A==(2*n)/2)
+      cout<<"YES"<<nline;
+   else if(count_B==(2*n)/2)
+      cout<<"YES"<<nline;
+   else
+      cout<<"NO"<<nline;
+
 
 }
 
