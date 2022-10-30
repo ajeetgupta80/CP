@@ -20,7 +20,7 @@
  
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
-
+// #define int               long  long
 #define INF               1e18
 #define nline             "\n"
 #define sl                s.length()
@@ -94,48 +94,39 @@ void display(int a[],int n)
    }
 }
 
-
-void solve()
+void swap(int a, int b)
 {
-   int n;
-   cin>>n;
-   string s;
-   cin>>s;
-   int count_A =0;
-   int count_B =0;
-   for(int i=0;i<2*n/2; ++i)
+   int temp = a;
+   a=b;
+   b = temp;
+}
+void printpair(vector<pair<ll,ll>> &v)
+{
+   for(int i=0; i<v.size(); ++i)
    {
-      if(s[i]>s[2*n-i-1])
-      {
-         if(s[i]>s[2*n-i-1]|| s[i]==s[2*n-i-1])
-             count_A++;
-      }
-
-      if(s[i]<s[2*n-i-1] )
-      {
-         if(s[i]<s[2*n-i-1] || s[i]==s[2*n-i-1])
-            count_B++;
-      }
-
-
+      cout<<v[i].first<<" "<<v[i].second<<endl;
    }
-   debug(count_B);
-   debug(count_A);
-   if(count_A==(2*n)/2)
-      cout<<"YES"<<nline;
-   else if(count_B==(2*n)/2)
-      cout<<"YES"<<nline;
-   else
-      cout<<"NO"<<nline;
-
+   cout<<endl;
 
 }
 
-
-
-
-
-
+void solve()
+{
+  int n;
+  cin>>n;
+  vector<pair<ll,ll>> v(n);
+  for(int i=0; i<n; ++i)
+  {
+     cin>>v[i].first>>v[i].second;
+     if(v[i].first<v[i].second)
+     {
+        swap(v[i].first,v[i].second);
+     }
+  }
+  sort(v.begin(), v.end());
+printpair(v);
+  
+}
  
 // int main() 
 

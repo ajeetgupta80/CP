@@ -1,2 +1,0 @@
-count_B 1
-count_A 1
