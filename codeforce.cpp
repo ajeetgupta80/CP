@@ -113,42 +113,52 @@ void printpair(vector<pair<ll,ll>> &v)
 
 void solve()
 {
-  int n;
-  cin>>n;
-  vector<pair<ll,ll>> v(n);
-  for(int i=0; i<n; ++i)
-  {
-     cin>>v[i].first>>v[i].second;
-     if(v[i].first<v[i].second)
-     {
-        swap(v[i].first,v[i].second);
-     }
-  }
-  sort(v.begin(), v.end());
-printpair(v);
-  ll ans =0;
-  for(int i =0; i<n; ++i)
-  {
-     ans+=v[i].second;
-  }
-  cout<<ans;
-  // ans*=2;
-  // for(int i= 0; i<n; ++i)
-  // {
-  //     if(i==0)
-  //     {
-  //        ans+=v[i].first;
-  //     }
-  //     else 
-  //     {
-  //        ans+=abs(v[i].first-v[i-1].first);
-  //     }
+
+   int n;
+   cin>>n;
+   long long ans=0;
+   vector<int> v(n);
+   for(int i=0; i<n; ++i){ cin>>v[i]; }
+   int count =0;
+   for(int i=0; i<n-1; ++i)
+   {
+      if(v[i]<v[i+1])
+      {
+         count++;
+      }
+   }
+   if(count==n-1)
+   {
+      cout<<"0"<<nline;
+   }
+   
+   else
+   {
+   
+   {
+
+      for(int i=n-2; i>=0; --i)
+      {
+         while(v[i]>=v[i+1] && v[i]>0 )
+         {
+            v[i] /=2;
+            ans++;
+
+         }
+         if(v[i]==v[i+1])
+         {
+            cout<<"-1"<<nline;
+            return;
+         }
+
+      }
+      cout<<ans<<nline;
+   }
+   }
 
 
-  // }
-  // ans+=v[n-1].first;
-  // cout<<ans<<nline;
-  // return;
+
+
   
 }
  
@@ -159,14 +169,14 @@ signed main(){
 
    fast_io;
    init_code();
-   // ll tt;
-   // cin>>tt; 
-   // while(tt--)
-   // {
-   //   solve();
+   ll tt;
+   cin>>tt; 
+   while(tt--)
+   {
+     solve();
      
-   // } 
-    solve();
+   } 
+    // solve();
 
     // int a =10;
     // int b=20;
