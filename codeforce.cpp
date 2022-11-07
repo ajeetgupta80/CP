@@ -109,62 +109,60 @@ void printpair(vector<pair<ll,ll>> &v)
    }
    cout<<endl;
 
+
 }
+void printv(vector<int> &v)
+{
+   for(int i=0;i<v.size(); ++i)
+   {
+      cout<<v[i]<<" ";
+   }
+   cout<<nline;
+}
+
+
+
+
 
 void solve()
-{
-
-   int n;
-   cin>>n;
-   long long ans=0;
-   vector<int> v(n);
-   for(int i=0; i<n; ++i){ cin>>v[i]; }
-   int count =0;
-   for(int i=0; i<n-1; ++i)
+{  
+   ll a,b,c;
+   cin>>a>>b>>c;
+   ll maxi = max(a, max(b,c));
+   ll ans_a=abs(a-maxi)+1;
+   ll ans_b=abs(b-maxi)+1;
+   ll ans_c=abs(c-maxi)+1;
+   if(maxi == a)
    {
-      if(v[i]<v[i+1])
-      {
-         count++;
-      }
+      cout<<0<<" ";
    }
-   if(count==n-1)
-   {
-      cout<<"0"<<nline;
-   }
-   
    else
    {
-   
+      cout<<ans_a<<" ";
+   }
+   if(maxi == b)
    {
-
-      for(int i=n-2; i>=0; --i)
-      {
-         while(v[i]>=v[i+1] && v[i]>0 )
-         {
-            v[i] /=2;
-            ans++;
-
-         }
-         if(v[i]==v[i+1])
-         {
-            cout<<"-1"<<nline;
-            return;
-         }
-
-      }
-      cout<<ans<<nline;
+      cout<<0<<" ";
    }
+   else
+   {
+      cout<<ans_b<<" ";
    }
-
-
-
-
-  
+   if(maxi == c)
+   {
+      cout<<0<<" ";
+   }
+   else
+   {
+      cout<<ans_c<<" ";
+   }
+   cout<<nline;
 }
- 
+
 // int main() 
 
-signed main(){
+int main()
+{
    debug_gen();
 
    fast_io;
@@ -173,9 +171,11 @@ signed main(){
    cin>>tt; 
    while(tt--)
    {
-     solve();
+      solve();
      
    } 
+  
+
     // solve();
 
     // int a =10;
