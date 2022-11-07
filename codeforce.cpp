@@ -20,7 +20,7 @@
  
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
-// #define int               long  long
+#define int               long  long
 #define INF               1e18
 #define nline             "\n"
 #define sl                s.length()
