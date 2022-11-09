@@ -2,7 +2,7 @@
 // -------------------------------------ajeet gupta -------------------------------------------        
 #include<iostream>
 #include<cmath>
-// #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 #include<vector>
 #include<algorithm>
 #include<math.h>                                                                                 
@@ -20,7 +20,7 @@
  
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
-#define int               long  long
+// #define int               long  long
 #define INF               1e18
 #define nline             "\n"
 #define sl                s.length()
@@ -126,43 +126,39 @@ void printv(vector<int> &v)
 
 
 void solve()
-{  
-   ll a,b,c;
-   cin>>a>>b>>c;
-   ll maxi = max(a, max(b,c));
-   ll ans_a=abs(a-maxi)+1;
-   ll ans_b=abs(b-maxi)+1;
-   ll ans_c=abs(c-maxi)+1;
-   if(maxi == a)
-   {
-      cout<<0<<" ";
-   }
-   else
-   {
-      cout<<ans_a<<" ";
-   }
-   if(maxi == b)
-   {
-      cout<<0<<" ";
-   }
-   else
-   {
-      cout<<ans_b<<" ";
-   }
-   if(maxi == c)
-   {
-      cout<<0<<" ";
-   }
-   else
-   {
-      cout<<ans_c<<" ";
-   }
-   cout<<nline;
+{   
+  int n;
+  cin>>n;
+  int x = n/6;
+  int y = n%6;
+  if(n<=6)
+  {
+     cout<<15<<nline;
+  }
+  else if(y==0)
+  {
+      cout<<(x*15)<<nline;
+  }
+  else if(y<=2)
+  {
+   cout<<(x*15)+5<<nline;
+  }
+  else if(y<=4)
+  {
+   cout<<(x*15)+10<<nline;
+  }
+  else
+  {
+   x++;
+   cout<<(x*15)<<nline;
+  }
+
+
 }
 
 // int main() 
 
-int main()
+signed main()
 {
    debug_gen();
 
