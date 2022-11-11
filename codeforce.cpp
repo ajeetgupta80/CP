@@ -2,7 +2,7 @@
 // -------------------------------------ajeet gupta -------------------------------------------        
 #include<iostream>
 #include<cmath>
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
 #include<vector>
 #include<algorithm>
 #include<math.h>                                                                                 
@@ -20,7 +20,7 @@
  
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
-// #define int               long  long
+#define int               long  long
 #define INF               1e18
 #define nline             "\n"
 #define sl                s.length()
@@ -61,9 +61,9 @@ typedef unsigned long long ull;
 #define debug(x)
 #endif
 
-void _print(int a ){ cerr<<a; }
+// void _print(int a ){ cerr<<a; }
 void _print(string a ){ cerr<<a; }
-void _print(long long a ){ cerr<<a; }
+// void _print(long long a ){ cerr<<a; }
 void _print(bool a ){ cerr<<a; }  
 void _print(char a ){ cerr<<a; }
 
@@ -127,31 +127,30 @@ void printv(vector<int> &v)
 
 void solve()
 {   
-  int n;
-  cin>>n;
-  int x = n/6;
-  int y = n%6;
-  if(n<=6)
-  {
-     cout<<15<<nline;
-  }
-  else if(y==0)
-  {
-      cout<<(x*15)<<nline;
-  }
-  else if(y<=2)
-  {
-   cout<<(x*15)+5<<nline;
-  }
-  else if(y<=4)
-  {
-   cout<<(x*15)+10<<nline;
-  }
-  else
-  {
-   x++;
-   cout<<(x*15)<<nline;
-  }
+ int n;
+ cin>>n;
+ string s;
+ cin>>s;
+ int ans =0;
+ bool flag = false;
+ for(int i=1; i<n; i++)
+ {
+   if(s[i]!=s[i-1])
+   {
+      if(flag == false && s[i] =='0')
+      {
+      flag = true;
+      ans++;
+      } 
+      else if(flag)
+   {
+      ans++;
+   }
+     
+   }
+  
+ }
+ cout<<ans<<nline;
 
 
 }
