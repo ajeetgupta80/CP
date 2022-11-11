@@ -127,31 +127,21 @@ void printv(vector<int> &v)
 
 void solve()
 {   
- int n;
- cin>>n;
- string s;
- cin>>s;
- int ans =0;
- bool flag = false;
- for(int i=1; i<n; i++)
- {
-   if(s[i]!=s[i-1])
-   {
-      if(flag == false && s[i] =='0')
-      {
-      flag = true;
-      ans++;
-      } 
-      else if(flag)
-   {
-      ans++;
-   }
-     
-   }
-  
- }
- cout<<ans<<nline;
 
+  
+  int n; cin >> n;
+    vector<int> a(n);
+    for(int i = 0; i < n; ++i)
+        cin >> a[i];
+    ll ans = 0;
+    int ptr = 0;
+    while(ptr < n && a[ptr] == 0)
+        ptr++;
+    for(int i = ptr; i < n-1; ++i){
+        ans += a[i];
+        if(a[i] == 0) ans++;
+    }
+    cout << ans << "\n";
 
 }
 
