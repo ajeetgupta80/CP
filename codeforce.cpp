@@ -127,21 +127,18 @@ void printv(vector<int> &v)
 
 void solve()
 {   
+   int n;
+   cin>>n;
+   int ans = n/2;
+   if(n%2==0)
+   {
+      cout<<ans<<nline;
+   }
+   else
+      cout<<ans+1<<nline;
+    
+    
 
-  
-  int n; cin >> n;
-    vector<int> a(n);
-    for(int i = 0; i < n; ++i)
-        cin >> a[i];
-    ll ans = 0;
-    int ptr = 0;
-    while(ptr < n && a[ptr] == 0)
-        ptr++;
-    for(int i = ptr; i < n-1; ++i){
-        ans += a[i];
-        if(a[i] == 0) ans++;
-    }
-    cout << ans << "\n";
 
 }
 
@@ -150,7 +147,6 @@ void solve()
 signed main()
 {
    debug_gen();
-
    fast_io;
    init_code();
    ll tt;
