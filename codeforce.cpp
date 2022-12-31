@@ -1,20 +1,22 @@
 
-// -------------------------------------ajeet gupta -------------------------------------------        
+// -------------------------------------ajeet gupta ---------------------------------------------     
 #include<iostream>
 #include<cmath>
-// #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 #include<vector>
 #include<algorithm>
 #include<math.h>                                                                                 
 #include<string>
 #include<unordered_set>
+#include<unordered_map>
 #include<cstring>
 #include<map>
 #include<stack>
 #include<set>
-// #include<queue>
-#include<ext/pb_ds/assoc_container.hpp> 
-#include<ext/pb_ds/tree_policy.hpp>
+#include<queue>
+#include <deque>
+#include<ext/pb_ds/assoc_container.hpp>  
+#include<ext/pb_ds/tree_policy.hpp>  
 
 
  
@@ -24,11 +26,11 @@
 #define INF               1e18
 #define nline             "\n"
 #define sl                s.length()
-#define pb                push_back
+#define pb                push_back               
 #define fr(a,b)           for(int i = a; i < b; i++)
 #define rep(i,a,b)        for(int i = a; i < b; i++)
 #define mod               1000000007
-#define inf               (1LL<<60)
+#define inf               (1LL<<60) 
 #define all(x)            (x).begin(), (x).end()
 #define prDouble(x)       cout << fixed << setprecision(10) << x
 #define triplet           pair<ll,pair<ll,ll>>
@@ -53,6 +55,8 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 typedef long long ll;
 typedef unsigned long long ull;
+typedef unordered_map<ll, bool> ump;
+typedef  priority_queue<int, vector<int>, greater<int> > pq;  // MIN HEAP 
 
 
 #ifndef ONLINE_JUDGE
@@ -94,12 +98,12 @@ void display(int a[],int n)
    }
 }
 
-void swap(int a, int b)
-{
-   int temp = a;
-   a=b;
-   b = temp;
-}
+// void swap(int a, int b)
+// {
+//    int temp = a;
+//    a=b;
+//    b = temp;
+// }
 
 void printpair(vector<pair<ll,ll>> &v)
 {
@@ -120,6 +124,15 @@ void printv(vector<int> &v)
    cout<<nline;
    // cout<<"hello world"
 }
+// finding gcd using long division menthod using RECURSION
+int GCD(int a, int b)
+{
+   if(b==0)    
+   {
+      return a;
+   }
+   return GCD(b, a%b);
+}
 
 
 
@@ -127,77 +140,41 @@ void printv(vector<int> &v)
 // int fact[1000001];
 void solve()
 {  
-   // long long n;
-   // cin>>n;
-   // string s;
-   // cin>>s;
-   // long long ans =0;
-   // long long dist=0,maxf=0,c[10];
-   
-   // for(int i=0; i<n; ++i)
-   // {
-   //    for(int j=0; j<9; ++j)
-   //    {
-   //       c[j]=0;
-   //    }
-   //    dist =0;
-   //    maxf =0;
+  int n;
+  cin >>n;
+  vector<int> v(n);
+  map<int ,int > mp;
+  for(int i=0; i<n; ++i)
+  {
+     cin >> v[i];
+     mp[v[i]]++;
+  }
+  bool flag = 0;
+  for(auto x:mp)
+  {
+   if(x.second%2!=0)
+   {
+      flag=1;
+      break;
+   }
 
-   //    for(int j=i; j<=i+99 && j<n; ++j)
-   //    {
-   //       c[s[i]-'0']++;
-   //       maxf=max(maxf,c[s[i]-'0']);
-   //       if(c[s[i]-'0']==1)
-   //       {
-   //          dist++;
-   //       }
-         
-   //       if(dist>= maxf)
-   //          ans++;
+  }
+  if(flag==1)
+  {
+   cout<<"YES"<<nline;
+  }
+  else{
+   cout<<"NO"<<nline;
+  }
 
-   //    }
-   // }
-   // cout<<ans<<nline;
 
-    ll t,ans, n, i, j, t1, l, maxf;
-    string a;
-    
-        cin>>n;
-        
-        cin>>a;
-        ans=0;
-        
-        ll c[10], dis=0;
-        
-        for(i=0; i<n; i++)
-        {
-            for(j=0; j<=9; j++){
-                c[j]=0;
-            }
-            maxf=0;
-            dis=0;
-            
-            for(j=i; j<=i+99 && j<n; j++)
-            {
-                c[a[j]-'0']++;
-                maxf=max(maxf, c[a[j]-'0']);
-                if(c[a[j]-'0']==1){
-                    dis++;
-                }
-                
-                if(dis>=maxf)
-                ans++;
-            }
-        }
-        
-        cout<<ans<<"\n";
-    }
-
+}
 
 // int main() 
 
 signed main()
 {
+   // TOTAL SUBARRAY OF N DISTINCT ELEMENT IS (N*(N+1)/2)
    debug_gen();
    fast_io;
    init_code();
@@ -205,8 +182,11 @@ signed main()
    cin>>tt; 
    while(tt--)
    {
-      solve();
+   solve();
    } 
+   // solve();
+ 
+   
   
 
     // solve();

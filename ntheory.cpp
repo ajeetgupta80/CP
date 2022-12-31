@@ -16,11 +16,8 @@ int GCD(int a, int b)
 
 // euclid algorithm 
 int LCM(int a, int b,int n)
-{
-   int l = (a*b)/n;
-   return l;
-
-}
+{   int l = (a*b)/n;
+   return l; }
 
 // for finding minimum factors
 // like 12/18 => 2/3   
@@ -29,7 +26,6 @@ void minfactor(int a, int b, int GCCD)
    int i = a/GCCD;
    int j = b/GCCD;
    cout<<i<<"/"<<j<<endl;
-
 }
 
 
@@ -42,6 +38,11 @@ void init_code(){
     #endif 
 }
 
+int powoftwo(int n)
+{
+   return (1<<n);
+}
+
 int main() 
 {
   // init_code();
@@ -50,6 +51,9 @@ int main()
   // minfactor(12,18,n);
   // cout<<n<<endl;
   // cout<<k<<endl;
+   int m = powoftwo(2);
+   cout<<m<<endl;
+
 
 
 
