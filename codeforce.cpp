@@ -18,19 +18,22 @@
 #include<ext/pb_ds/assoc_container.hpp>  
 #include<ext/pb_ds/tree_policy.hpp>  
 
+// #define rep(i,n) for (int i = 0; i < (n); ++i)
+const long long INF = 1ll << 32;
+
+
 
  
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
 #define int               long  long
-#define INF               1e18
+// #define INF               1e18
 #define nline             "\n"
 #define sl                s.length()
 #define pb                push_back               
 #define fr(a,b)           for(int i = a; i < b; i++)
 #define rep(i,a,b)        for(int i = a; i < b; i++)
-#define mod               1000000007
-#define inf               (1LL<<60) 
+#define mod               1000000007 
 #define all(x)            (x).begin(), (x).end()
 #define prDouble(x)       cout << fixed << setprecision(10) << x
 #define triplet           pair<ll,pair<ll,ll>>
@@ -49,8 +52,8 @@ sun upto n-1 = (n*(n-1)/2)
 */
 
 using namespace std;
-using namespace __gnu_pbds;
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order, order_of_key
+// using namespace __gnu_pbds;
+// typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order, order_of_key
 
 
 typedef long long ll;
@@ -90,13 +93,7 @@ void init_code(){
 
 
 
-void display(int a[],int n)
-{
-   for(int i =0; i<n; i++)
-   {
-      cout<<a[i]<<" ";
-   }
-}
+
 
 // void swap(int a, int b)
 // {
@@ -115,15 +112,7 @@ void printpair(vector<pair<ll,ll>> &v)
 
 
 }
-void printv(vector<int> &v)
-{
-   for(int i=0;i<v.size(); ++i)
-   {
-      cout<<v[i]<<" ";
-   }
-   cout<<nline;
-   // cout<<"hello world"
-}
+
 // finding gcd using long division menthod using RECURSION
 int GCD(int a, int b)
 {
@@ -138,37 +127,89 @@ int GCD(int a, int b)
 
 
 // int fact[1000001];
-void solve()
-{  
-  int n;
-  cin >>n;
-  vector<int> v(n);
-  map<int ,int > mp;
-  for(int i=0; i<n; ++i)
-  {
-     cin >> v[i];
-     mp[v[i]]++;
-  }
-  bool flag = 0;
-  for(auto x:mp)
-  {
-   if(x.second%2!=0)
-   {
-      flag=1;
-      break;
-   }
 
-  }
-  if(flag==1)
-  {
-   cout<<"YES"<<nline;
-  }
-  else{
-   cout<<"NO"<<nline;
-  }
+
+
+const int N = 21000;
+vector<int> prime(N+1);
+vector<bool> isprime(N+1, true);
+
+
+void seve()
+{
+    isprime[1] = false;
+    for(int i=2; i<=N; ++i)
+    {
+        if(isprime[i])
+            {
+                prime.push_back(i);
+                for(int j = i*i; j<=N; j+=i)
+                {
+                    isprime[j] =false;
+                }
+
+            }
+    }
 
 
 }
+
+
+void solve(){  
+   
+    int num;
+    cin >>num;
+    int ajeet[num+2];
+    int abhay[num+2];
+    for(int i=1; i<=num; ++i )
+    cin >> ajeet[i];
+    for(int i=1; i<=num; ++i )
+    cin >> abhay[i];
+    
+    int max = 0;
+    int max_ind =0;
+    for(int i =1; i<=num; ++i)
+    {
+        if(ajeet[i]>max )
+        {
+            max = ajeet[i];
+            max_ind = i;
+        }else if(ajeet[i]==max )
+        {
+            if(abhay[i]>abhay[max_ind]){
+                max = ajeet[i];
+                max_ind = i;
+            }
+        }
+    }
+    cout<<max_ind<<endl;
+ 
+}
+
+
+     
+
+
+
+
+set <int > s;
+bool prime_square[1000000];
+void sieve(){
+   for(int i =2; i<1000000; ++i)
+   {
+      if(!prime_square[i])
+      {
+         s.insert(i*i);
+         for(int j= i*i; j<1000000; j+=i )
+         {
+            prime_square[j]= true;
+
+         }
+      }
+   }
+   
+}
+
 
 // int main() 
 
@@ -178,6 +219,7 @@ signed main()
    debug_gen();
    fast_io;
    init_code();
+   seve();
    ll tt;
    cin>>tt; 
    while(tt--)
@@ -185,6 +227,14 @@ signed main()
    solve();
    } 
    // solve();
+
+
+ 
+
+   }
+
+
+
  
    
   
@@ -205,4 +255,4 @@ signed main()
     // s2.insert(20000);
     // s2.insert(88888);
     // debug(s2);
-}
+
