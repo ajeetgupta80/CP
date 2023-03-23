@@ -1,44 +1,63 @@
+// number theory practise and some of the algorithms of number theory --------      
+#include<iostream>
+#include<cmath>
+// #include<bits/stdc++.h>
+using namespace std;
 
-// facebook -------
-void solve(){  
+// finding gcd using long division menthod using RECURSION
+int GCD(int a, int b)
+{
+   if(b==0)    
+   {
+      return a;
+   }
+   return GCD(b, a%b);
+}
+
+// euclid algorithm 
+int LCM(int a, int b,int n)
+{   int l = (a*b)/n;
+   return l; }
+
+// for finding minimum factors
+// like 12/18 => 2/3   
+void minfactor(int a, int b, int GCCD)
+{
+   int i = a/GCCD;
+   int j = b/GCCD;
+   cout<<i<<"/"<<j<<endl;
+}
+
+
+
+void init_code(){
    
-    int num;
-    cin >>num;
-    int ajeet[num+2];
-    int abhay[num+2];
-    for(int i=1; i<=num; ++i )
-    cin >> ajeet[i];
-    for(int i=1; i<=num; ++i )
-    cin >> abhay[i];
-    
-    int max = 0;
-    int max_ind =0;
-    for(int i =1; i<=num; ++i)
-    {
-        if(ajeet[i]>max )
-        {
-            max = ajeet[i];
-            max_ind = i;
-        }else if(ajeet[i]==max )
-        {
-            if(abhay[i]>abhay[max_ind]){
-                max = ajeet[i];
-                max_ind = i;
-            }
-        }
-    }
-    cout<<max_ind<<endl;
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif 
+}
+
+int powoftwo(int n)
+{
+   return (1<<n);
+}
+
+int main() 
+{
+  // init_code();
+  // int n= GCD(12,18);
+  // int k= LCM(12,18,n);
+  // minfactor(12,18,n);
+  // cout<<n<<endl;
+  // cout<<k<<endl;
+   int m = powoftwo(2);
+   cout<<m<<endl;
+
+
+
+
  
-}
-
-
-
-
-// lcm hates gcd -------
-void solve(){  
-   
-   int a, b;
-   cin>>a>>b;
-    int c = __gcd(a,b);
-    cout<<lcm(a,c)-__gcd(b,c)<<endl;
-}
+   return 0;
+} 
+     
