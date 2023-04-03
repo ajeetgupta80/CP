@@ -1,41 +1,49 @@
-// Online C++ compiler to run C++ program online
-#include <iostream>
 #include<bits/stdc++.h>
-#define nline endl
 using namespace std;
-
-
-
+ 
 int main() {
-    int t;
-    cin >>t;
-    while(t--)
+  // code start here
+  
+  int t = 0;
+  cin>>t;
+  while(t--){
+    // algorithm used
+    int cl;
+    cin>>cl;
+ 
+    unordered_map<int,int> s;
+    for(int i = 0; i < 4; ++i)
     {
-        string k;
-        cin >> k;
-         map<char,int > mp;
-         priority_queue<int> pq;
-         for(int i =0; i<k.size(); ++i )
-         {
-             mp[k[i]]++;
-             pq.push(mp.second);
-         }
-  int p = pq.top();
-   if(p==1){
-   cout<<4<<nline;
-  }else if(p==4){
-   cout<<-1<<nline;
-  }else if(p == 3)
-  {
-   cout<<6<<nline;
-  }else if(p == 2)
-  {
-   cout<<4<<nline;
-  }
-        
+      int l_digit = cl % 10;
+      cl = cl / 10;
+      s[l_digit]++;
     }
-
-    return 0;
+ 
+    if(s.size()==2){
+      vector <int> x;
+      for (auto value : s)
+      {
+        x.push_back(value.second);
+      }
+      if(x[0]!=x[1]){
+        cout<<6<<endl;
+      }
+      else{
+        cout<<4<<endl;
+      }
+    }
+    else if(s.size()==3){
+      cout<<4<<endl;
+    }
+    else if(s.size()==4){
+      cout<<4<<endl;
+    }
+    else{
+      cout<<-1<<endl;
+    }
+  }
+ 
+  return 0;
 }
 
 
