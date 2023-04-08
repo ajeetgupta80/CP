@@ -15,22 +15,15 @@
 #include<set>
 #include<queue>
 #include <deque>
-#include<ext/pb_ds/assoc_container.hpp>  
-#include<ext/pb_ds/tree_policy.hpp>  
+// #include<ext/pb_ds/assoc_container.hpp>  
+// #include<ext/pb_ds/tree_policy.hpp>  
 
 // #define rep(i,n) for (int i = 0; i < (n); ++i)
 const long long INF = 1ll << 32;
 
-
 // for n elements theere are 2^n subsets in mathematics
-
- 
 // for iterator (*it).first == it->first for maps
 // A TO Z --> 65 TO 90 ,  a to z --> 97 to 122
-
-
-
-
 #define int               long  long
 // #define INF               1e18
 #define nline             "\n"
@@ -242,36 +235,28 @@ bool cmp(pair<char, int>& a,
 
 
 
-void solve(){
-   
-   int n;
-   cin >> n;
-   vector<int> v(n);
+
+int solve(int a, int b, int n ,int m){
    int ans = 0;
-   for(int i=0; i<n; ++i){
-    cin >> v[i];
-    ans^=v[i];
 
+   if(a-1>0){
+    ans+=1;
    }
-
-   if(n%2==0)
+   if(n-a>0){
+    ans+=1;
+   }
+   if(b-1>0)
    {
-     if(ans==0)
-     {
-        cout<<0<<nline;
-     }else{
-        cout<<-1<<nline;
-     }
-   }else{
-    cout<<ans<<nline;
-    c
-    cout<<ans<<nline;
+    ans+=1;
    }
-
-
-
+   if(m-b>0){
+    ans+=1;
+   }
+  
+  return ans;
+  
+   
 }
-
    
 
 
@@ -288,11 +273,15 @@ signed main()
    cin>>tt; 
    while(tt--)
    {             
-     solve(); 
-   }
-   // solve();
+      
+   int n,m;
+   cin >> n >>m;
+   int a,b,c,d;
+   cin >> a >> b >> c >> d;
 
- 
+    int res= min(solve(a,b,n,m), solve(c,d,n,m));
+    cout<<res<<nline;
+   }
 
 
    }
