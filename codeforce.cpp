@@ -1,7 +1,14 @@
 
 // -------------------------------------ajeet gupta ---------------------------------------------
+/*
+ID: edaj8081
+LANG: C++
+TASK: Your Ride Is Here
+*/
 #include<iostream>
+#include<stdlib.h>
 #include<cmath>
+#include <stdio.h>
 #include<bits/stdc++.h>
 #include<vector>
 #include<algorithm>
@@ -15,7 +22,7 @@
 #include<set>
 #include<queue>
 #include <deque>
-// #include<ext/pb_ds/assoc_container.hpp>  
+// #include<ext/pb_ds/assoc_container.hpp>   
 // #include<ext/pb_ds/tree_policy.hpp>  
 
 // #define rep(i,n) for (int i = 0; i < (n); ++i)
@@ -32,6 +39,7 @@ const long long INF = 1ll << 32;
 #define fr(a,b)           for(int i = a; i < b; i++)
 #define rep(i,a,b)        for(int i = a; i < b; i++)
 #define mod               1000000007 
+// #define mod               1e8+1;
 // #define all(x)            (x).begin(), (x).end()
 #define prDouble(x)       cout << fixed << setprecision(10) << x
 #define triplet           pair<ll,pair<ll,ll>>
@@ -223,65 +231,153 @@ void reverseStr(string& str)
 
  //    }
  //  }
-bool cmp(pair<char, int>& a,
-        pair<char, int>& b)
+
+
+// int required;
+// void dfs(vector<int>&v, int ind, int sum)
+// { 
+//    if(ind == v.size())
+//      {
+//        if(sum == required){
+//           cout<<"found"<<endl; 
+//        }
+//             return;
+//      }
+//    dfs(v,ind+1,sum+v[ind]);
+//    dfs(v,ind+1,sum);
+// }
+string printbinary(int n)
 {
-    return a.second < b.second;
-
-
+     return bitset<8>(n).to_string();
 }
 
 
 
 
+// int dp[100];
+// int enter = 0;
+// int solve(int n)
+// {   
+//     enter++;
+    
+//     if(n<2)
+//         return 1;
 
+//     if(dp[n]!=-1)
+//         return dp[n];
 
-int solve(int a, int b, int n ,int m){
-   int ans = 0;
+//     dp[n] = solve(n-1)+solve(n-2);
+//     return dp[n];
 
-   if(a-1>0){
-    ans+=1;
-   }
-   if(n-a>0){
-    ans+=1;
-   }
-   if(b-1>0)
-   {
-    ans+=1;
-   }
-   if(m-b>0){
-    ans+=1;
-   }
   
-  return ans;
-  
-   
+// }
+
+
+void ways(vector<vector<int>> &ans, vector<int> &a, int b, int ind,vector<int> &ds)
+{  
+        if(b<0) return;
+        if(ind>=a.size()) return;
+        if(b==0)
+        {
+            sort(ds.begin(),ds.end());
+            ans.push_back(ds);
+            return;
+        }
+    
+        for(int i = ind; i<a.size(); ++i)
+        {
+            ds.push_back(a[i]);
+            
+            ways(ans,a,b-a[i],i,ds);
+            ds.pop_back();
+        }
+        
 }
-   
+  
+void solve(){
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(int i =0;i<n; ++i)
+        cin >> v[i];
+    vector<int> ans(n);
+    reverse(v.begin(), v.end());
+    for(int i =0; i<n; ++i)
+    {
+        int fake = 0;
+        for(int j = i+1; j<n; ++j)
+        {
+            if(v[i]<v[j]){
+                fake++;
+            }
+        }
+        ans.push_back(fake);
+    }
+    reverse(ans.begin(), ans.end());
+    for(int i =0; i<n; ++i)
+    {
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
+      
+        
+
+}
 
 
-
+ 
 // int main() 
-signed main()
+ signed main()
 {
+    ofstream fout ("test.out");
+    ifstream fin ("test.in");
    // TOTAL SUBARRAY OF N DISTINCT ELEMENT IS (N*(N+1)/2)
    debug_gen();
    fast_io;
-   init_code();
+   init_code(); 
    // seve();
-   int tt;
-   cin>>tt; 
-   while(tt--)
-   {             
+   // int tt;
+   // cin>>tt; 
+   // while(tt--)
+   // {             
+    
+   //     solve();
+   
+   // }
+   //  memset(dp,-1,sizeof(dp));
+   // int ans = solve(7);
+   // cout<<ans<<endl;
+   // cout<<enter<<endl;
+
+  // solve();
+   // int n;
+   // cin >> n;
+   // vector<int> A(n);
+   // for(int i=0; i<n; ++i)
+   //   cin >> A[i];
+   // int B;
+   // cin >> B;
+       
+   //      vector<vector<int> > ans;
+   //      vector<int> ds;
+   //      sort(A.begin(),A.end());
+   //      solve(ans,A,B,0,ds);
+   //      for(auto it:ans)
+   //      {
+   //          for(auto x:it)
+   //          {
+   //              cout<<x<<" ";
+   //          }
+   //          cout<<endl;
+   //      }
+        
+      //   for(int i = 0; i<=10; ++i)
+      //   {
+      //       cout<<printbinary(i)<<endl;
+      //   }
       
-   int n,m;
-   cin >> n >>m;
-   int a,b,c,d;
-   cin >> a >> b >> c >> d;
-
-    int res= min(solve(a,b,n,m), solve(c,d,n,m));
-    cout<<res<<nline;
-   }
-
+      // int ans = 6|7;
+      // cout<<ans<<endl;
+   solve();
 
    }
