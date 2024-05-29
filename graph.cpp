@@ -4,67 +4,53 @@
 #include<cmath>
 #include<bits/stdc++.h>
 
-
 using namespace std;
 
 
 
-void init_code(){
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif 
-}
 
+// namespace std2{
+//     int age = 19;
+// }
+// namespace std3{
+//     int age = 20;
+// }
 
-void solve()
+// using namespace std3;
+
+struct Edge{
+    int src;
+    int dest;
+};
+
+class Graph
 {
-    // adjacency matrix
-    int n,m;
-    cin>>n>>m;
-    int adj[n][n];
-    for(int i =0; i<n; ++i)
-    {
-        int u,v;
-        cin >> u >> v;
-        adj[u][v]=1;                                                        
-        adj[v][u]=1;
+  public:  
+    vector<vector<int>> adjlist;
+    Graph(vector<Edge> const &edges, int n){
+       
+         for(auto &edge:edges){
+            adjlist[edge.src].push_back(edge.dest);
+         }
     }
-
-
-}
-    
-
-
-
-
-
    
+};
+
+
 
 int main(){
-   init_code();
-   
-   int n,m;
-   cin>> n >> m;
-   int adj[n+1][m+1];
-   vector<int> graph[n];
-   vector<pair<int,int>> grp[n];
-   for(int i =0; i<n; ++i)
-   {
-      int u,v,wt;
-      cin >> u >> v;
-      cin >>wt;
-      graph[u].push_back(v);
-      graph[v].push_back(u);
-      // if weighted
-      grp[u].push_back({v,wt});
-      grp[v].push_back({u,wt});
+     // int n;
+     // cin >>n;
+     // vector<Edge> edges;
+     // for(int i =0; i<n; ++i){
+     //    int x, y;
+     //    cin>> x >> y;
+     //    edges.push_back({x,y});
+     // }
      
-   }
-
-
+     // Graph graph(edges, n);
   
-  
+   
    
   
 
